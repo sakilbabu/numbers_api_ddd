@@ -5,11 +5,11 @@ import 'package:number_api_ddd/domain/entities/submit_state.dart';
 
 class HomeController extends GetxController {
   final SubmitStateUseCase _submitStateUseCase;
-  final submitState = Rxn<SubmitState>();
+  final submit = Rxn<SubmitState>();
   HomeController(this._submitStateUseCase);
   submitStates() async {
     final response = await _submitStateUseCase.call(EmptyRequest());
 
-    return submitState.value = response;
+    return submit.value = response;
   }
 }

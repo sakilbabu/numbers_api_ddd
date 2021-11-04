@@ -21,14 +21,14 @@ class HomePage extends GetView {
           ),
           ElevatedButton(
             onPressed: () async {
-              await controller.submitStates();
+              await controller.
             },
             child: const Text('Submit'),
           ),
           Expanded(
             child: Column(
               children: [
-                Obx(() => controller.value == null
+                Obx(() => controller == null
                     ? Text("you are yet to submit a year code")
                     : Text(controller.value!)),
               ],
