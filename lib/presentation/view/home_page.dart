@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:number_api_ddd/presentation/controllers/home_controller.dart';
 
-class HomePage extends GetView {
+class HomePage extends GetView<HomeController> {
   HomePage({Key? key}) : super(key: key);
-  final submit = TextEditingController();
+  final text = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,22 +18,20 @@ class HomePage extends GetView {
               }
               return null;
             },
-            controller: submit,
+            controller: text,
           ),
           ElevatedButton(
             onPressed: () async {
-              await controller.
+              await controller.submitStates();
             },
             child: const Text('Submit'),
           ),
-          Expanded(
-            child: Column(
-              children: [
-                Obx(() => controller == null
-                    ? Text("you are yet to submit a year code")
-                    : Text(controller.value!)),
-              ],
-            ),
+          Column(
+            children: [
+              Obx(() => controller.text.value == null
+                  ? const Text("you are yet to submit a year code")
+                  : Text(controller.text.value!.text!)),
+            ],
           )
         ],
       ),

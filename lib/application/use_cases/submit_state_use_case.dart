@@ -9,6 +9,6 @@ class SubmitStateUseCase implements BaseUseCase<SubmitState, EmptyRequest> {
   SubmitStateUseCase(this._submitStateRepository);
   @override
   Future<SubmitState> call(EmptyRequest request) {
-    return _submitStateRepository.submitState();
+    return _submitStateRepository.getSubmitState();
   }
 }

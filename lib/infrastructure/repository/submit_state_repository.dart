@@ -7,7 +7,7 @@ class SubmitStateRepositoryImpl implements SubmitStateRepository {
 
   SubmitStateRepositoryImpl(this._submitStateDataSource);
   @override
-  Future<SubmitState> submitState() {
+  Future<SubmitState> getSubmitState() {
     return _submitStateDataSource.submitState();
   }
 }
